@@ -26,3 +26,7 @@ add_library(goodform SHARED ${SOURCE_FILES} ${HEADER_FILES})
 add_library(goodform-static STATIC ${SOURCE_FILES} ${HEADER_FILES})
 
 add_executable(variant-test tests/variant-test.cpp ${SOURCE_FILES} ${HEADER_FILES})
+
+install(FILES libgoodform-static.a DESTINATION lib)
+install(FILES lib/libgoodform.so DESTINATION lib)
+install(FILES $(HEADER_FILES) DESTINATION include/goodform)
