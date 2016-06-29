@@ -29,4 +29,4 @@ add_executable(variant-test tests/variant-test.cpp ${SOURCE_FILES} ${HEADER_FILE
 
 install(FILES libgoodform-static.a DESTINATION lib)
 install(FILES lib/libgoodform.so DESTINATION lib)
-install(FILES $(HEADER_FILES) DESTINATION include/goodform)
+install(FILES ${HEADER_FILES} DESTINATION include/goodform)
