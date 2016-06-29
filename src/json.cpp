@@ -1,6 +1,6 @@
 
 #include <sstream>
-#include <codecvt>
+#include <utf8.h>
 
 #include "json.hpp"
 
@@ -314,10 +314,10 @@ namespace goodform
             utf32String.push_back(uniChar);
 #ifdef _MSC_VER
             std::wstring_convert<std::codecvt_utf8<__int32>, __int32> convert;
-#else
-            std::wstring_convert<std::codecvt_utf8<char32_t>, char32_t> convert;
-#endif
             destination += convert.to_bytes(utf32String);
+#else
+            utf8::utf32to8( utf32String.begin(), utf32String.end(), back_inserter(destination));
+#endif
           }
         }
       }
