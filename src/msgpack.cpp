@@ -486,6 +486,31 @@ namespace goodform
           v = val;
         }
       }
+      else if (typeByte == 0xD4) // Fixint 1
+      {
+        input.seekg( 2, input.cur );
+        v = nullptr;
+      }
+      else if (typeByte == 0xD5) // Fixint 2
+      {
+        input.seekg( 3, input.cur );
+        v = nullptr;
+      }
+      else if (typeByte == 0xD6) // Fixint 4
+      {
+        input.seekg( 5, input.cur );
+        v = nullptr;
+      }
+      else if (typeByte == 0xD7) // Fixint 8
+      {
+        input.seekg( 9, input.cur );
+        v = nullptr;
+      }
+      else if (typeByte == 0xD8) // Fixint 16
+      {
+        input.seekg( 17, input.cur );
+        v = nullptr;
+      }
       else if (typeByte == 0xD9) // str 8
       {
         std::size_t sz(0xFF & static_cast<unsigned int>(input.get()));
